@@ -31,16 +31,17 @@ Shader "Kvant/SprayMV/Normals"
         float s = ScaleAnimation(uv, l);
 
         position.xyz = RotateVector(position.xyz, r) * s + p.xyz;
+        normal = RotateVector(normal, r);
 
         Varyings output;
         output.position = UnityObjectToClipPos(position);
-        output.normal = RotateVector(normal, r);
+        output.normal = mul(UNITY_MATRIX_V, mul(unity_ObjectToWorld, normal));
         return output;
     }
 
     half4 Fragment(Varyings input) : SV_Target
     {
-        return half4((input.normal + 1) / 2, 1);
+        return half4(input.normal.z, 1, 1, 1);
     }
 
     ENDCG

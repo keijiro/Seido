@@ -1627,13 +1627,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc069898107e2341bae915c59ab4ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gradient: {fileID: 11400000, guid: 4c81f7631642dcc41a15d0b3be03bb51, type: 2}
   _lineColor: {r: 0, g: 0, b: 0, a: 1}
-  _fillColor1: {r: 0, g: 0, b: 1, a: 1}
-  _fillColor2: {r: 1, g: 0, b: 0, a: 1}
-  _fillColor3: {r: 1, g: 1, b: 1, a: 1}
   _colorThreshold: 0.026
   _depthThreshold: 0.021
-  _gradient: {fileID: 11400000, guid: 4c81f7631642dcc41a15d0b3be03bb51, type: 2}
   _shader: {fileID: 4800000, guid: 4a17056471009864db6dfeb7c1e53215, type: 3}
 --- !u!1 &1467077959
 GameObject:
