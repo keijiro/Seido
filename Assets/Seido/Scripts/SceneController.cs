@@ -2,8 +2,10 @@
 
 namespace Seido
 {
-    class Configurator : MonoBehaviour
+    class SceneController : MonoBehaviour
     {
+        [SerializeField] GameObject[] _videoPlayers;
+
         void Start()
         {
             // Hide cursor at runtime.
@@ -17,6 +19,18 @@ namespace Seido
             {
                 Display.displays[displayCount - 1].Activate();
                 Display.displays[displayCount    ].Activate();
+            }
+        }
+
+        void Update()
+        {
+            for (var i = 0; i < _videoPlayers.Length; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.F1 + i))
+                {
+                    _videoPlayers[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
