@@ -1,10 +1,8 @@
-﻿Shader "Seido/VideoWall"
+﻿Shader "Hidden/Seido/VideoWall"
 {
     Properties
     {
         [HideInInspector] _MainTex("Texture", 2D) = "black" {}
-        _Repeat("X Repeat", Float) = 1
-        _Scroll("Scroll Speed", Float) = 1
     }
 
     HLSLINCLUDE
@@ -12,8 +10,9 @@
     #include "UnityCG.cginc"
 
     sampler2D _MainTex;
-    float _Repeat;
-    float _Scroll;
+    float2 _Repeat;
+    float2 _Offset;
+    half _Opacity;
 
     struct Varyings
     {
@@ -31,20 +30,20 @@
 
     half4 Fragment(Varyings input) : SV_Target
     {
-        float2 uv = input.texcoord;
-        uv.x = frac(uv.x * _Repeat + _Scroll * _Time.y);
-        half4 c = tex2D(_MainTex, uv);
-        c.rgb = LinearToGammaSpace(c.rgb);
-        return c;
+        float2 uv = frac(input.texcoord * _Repeat + _Offset);
+        half3 c = tex2D(_MainTex, uv).rgb;
+        // c = LinearToGammaSpace(c);
+        return half4(c, _Opacity);
     }
 
     ENDHLSL
 
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
         Pass
         {
+            Cull Off ZWrite Off ZTest Always
+            Blend SrcAlpha OneMinusSrcAlpha
             HLSLPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
