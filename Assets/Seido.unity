@@ -1033,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &637160828
 MeshFilter:
   m_ObjectHideFlags: 8
@@ -1988,6 +1988,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c156ba3a681b05408ab8e3ea30eace7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gradients:
+  - {fileID: 11400000, guid: 02a4dabdfebb7494d949cc4f9775a52c, type: 2}
+  - {fileID: 11400000, guid: 4c81f7631642dcc41a15d0b3be03bb51, type: 2}
+  - {fileID: 11400000, guid: 24c3f309e87da874d9819e23866b44a5, type: 2}
+  - {fileID: 11400000, guid: d4734ca94f188794cb10bca2b161b85b, type: 2}
+  - {fileID: 11400000, guid: 74d6edab06b011b46867f188e9e093a3, type: 2}
+  - {fileID: 11400000, guid: f949b7b1b46d3b24ebe0d03565416a20, type: 2}
+  - {fileID: 11400000, guid: e85efa6ead79f304cac894ae3c78852a, type: 2}
+  - {fileID: 11400000, guid: 5d979aeb7e86ad549ac9ba267a78548b, type: 2}
   _videoPlayers:
   - {fileID: 1399814376}
   - {fileID: 259476015}
