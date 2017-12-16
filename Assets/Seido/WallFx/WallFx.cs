@@ -5,17 +5,13 @@ namespace Seido
     [ExecuteInEditMode]
     public class WallFx : MonoBehaviour
     {
-        [SerializeField] Color _color1 = Color.black;
-        [SerializeField] Color _color2 = Color.white;
-        [SerializeField] float _speed = 1;
+        public float amplitude { get; set; }
+        public int effectType { get; set; }
 
         [SerializeField, HideInInspector] Shader _shader;
         Material _material;
 
-        public float amplitude { get; set; }
-
         static int _instanceCount;
-
         float _time;
 
         void OnDestroy()
@@ -36,7 +32,7 @@ namespace Seido
 
         void Update()
         {
-            if (Application.isPlaying) _time += Time.deltaTime * _speed;
+            if (Application.isPlaying) _time += Time.deltaTime;
         }
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
@@ -47,12 +43,11 @@ namespace Seido
                 _material.hideFlags = HideFlags.DontSave;
             }
 
-            _material.SetColor("_Color1", _color1);
-            _material.SetColor("_Color2", _color2);
             _material.SetFloat("_Amplitude", amplitude);
-            _material.SetFloat("_LocalTime", _time + _instanceCount);
+            _material.SetFloat("_LocalTime", _time);
 
-            Graphics.Blit(source, destination, _material, 0);
+            var pass = Mathf.Clamp(effectType, 0, _material.passCount - 1);
+            Graphics.Blit(source, destination, _material, pass);
         }
     }
 }

@@ -3,13 +3,12 @@
     Properties
     {
         _MainTex("", 2D) = "white" {}
-        _Color1("", Color) = (0, 0, 0, 1)
-        _Color2("", Color) = (1, 1, 1, 1)
     }
 
     HLSLINCLUDE
 
     #include "UnityCG.cginc"
+    #include "SimplexNoise2D.hlsl"
 
     // Hash function from H. Schechter & R. Bridson, goo.gl/RXiKaH
     uint Hash(uint s)
@@ -37,10 +36,6 @@
     }
 
     sampler2D _MainTex;
-
-    half4 _Color1;
-    half4 _Color2;
-
     float _Amplitude;
     float _LocalTime;
 
@@ -55,6 +50,14 @@
         outUV = uv;
     }
 
+    half Mask(float2 uv);
+
+    half4 Fragment(float4 sv_position : SV_Position, float2 uv : TEXCOORD0) : SV_Target
+    {
+        half4 c = tex2D(_MainTex, uv);
+        return half4(lerp(c.rgb, 1 - c.rgb, Mask(uv)), c.a);
+    }
+
     ENDHLSL
 
     SubShader
@@ -65,7 +68,44 @@
             HLSLPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
-            #include "SlitLines.hlsl"
+            #define WALLFX_THRU
+            #include "WallFx.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex Vertex
+            #pragma fragment Fragment
+            #define WALLFX_SLITLINES
+            #include "WallFx.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex Vertex
+            #pragma fragment Fragment
+            #define WALLFX_WAVEBARS
+            #include "WallFx.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex Vertex
+            #pragma fragment Fragment
+            #define WALLFX_SHUTTERS
+            #include "WallFx.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex Vertex
+            #pragma fragment Fragment
+            #define WALLFX_SQUARES
+            #include "WallFx.hlsl"
             ENDHLSL
         }
     }

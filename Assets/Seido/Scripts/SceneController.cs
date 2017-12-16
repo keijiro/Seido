@@ -20,7 +20,13 @@ namespace Seido
             KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P
         };
 
+        static readonly KeyCode[] _wallFxKeys = {
+            KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G,
+            KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L
+        };
+
         FxController[] _fxControllers;
+        WallFx[] _wallFx;
         PostFx _postFx;
 
         bool CheckVideoPlayerActive()
@@ -54,6 +60,9 @@ namespace Seido
             for (var i = 0; i < _effectGroups.Length; i++)
                 _fxControllers[i] = new FxController(_effectGroups[i]);
 
+            // Retrieve the reference to the wall fx.
+            _wallFx = FindObjectsOfType<WallFx>();
+
             // Retrieve the reference to the main camera post fx.
             _postFx = FindObjectOfType<PostFx>();
         }
@@ -72,6 +81,8 @@ namespace Seido
                 if (Input.GetKeyDown(KeyCode.F1 + i))
                 {
                     _videoPlayers[i].SetActive(true);
+                    // Disable wall fx.
+                    foreach (var fx in _wallFx) fx.effectType = 0;
                     break;
                 }
             }
@@ -89,6 +100,16 @@ namespace Seido
                 if (Input.GetKeyDown(_gradientKeys[i]))
                 {
                     _postFx.gradient = _gradients[i];
+                    break;
+                }
+            }
+
+            // Key input: Wall effects (ASDF row)
+            for (var i = 0; i < _wallFx.Length; i++)
+            {
+                if (Input.GetKeyDown(_wallFxKeys[i]))
+                {
+                    foreach (var fx in _wallFx) fx.effectType = i;
                     break;
                 }
             }
