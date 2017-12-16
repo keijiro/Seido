@@ -60,28 +60,30 @@ namespace Seido
         {
             if (Application.isPlaying)
             {
-                var dt = Time.deltaTime;
-                _time += _gradientSpeed * dt;
-
+                // Play mode: Interpolates the gradient coefficients.
                 if (_gradient != null)
                 {
-                    var exp = Mathf.Exp(-0.5f * dt);
+                    var exp = Mathf.Exp(-0.5f * Time.deltaTime);
                     _gCoeffsA = Vector4.Lerp(_gradient.coeffsA, _gCoeffsA, exp);
                     _gCoeffsB = Vector4.Lerp(_gradient.coeffsB, _gCoeffsB, exp);
                     _gCoeffsC2 = Vector4.Lerp(_gradient.coeffsC2, _gCoeffsC2, exp);
                     _gCoeffsD2 = Vector4.Lerp(_gradient.coeffsD2, _gCoeffsD2, exp);
                 }
+
+                // Update the gradient time parameter.
+                _time += _gradientSpeed * Time.deltaTime;
             }
             else
             {
-                _time = 1;
-
+                // Edit mode: Always shows the initial state.
                 InitializeGCoeffs();
+                _time = 0;
             }
         }
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
+            // Lazy initialization of the material object.
             if (_material == null)
             {
                 _material = new Material(_shader);
