@@ -3,22 +3,19 @@
 namespace Seido
 {
     [ExecuteInEditMode]
-    public class SlitLines : MonoBehaviour
+    public class WallFx : MonoBehaviour
     {
         [SerializeField] Color _color1 = Color.black;
         [SerializeField] Color _color2 = Color.white;
-        [SerializeField] float _frequency = 10;
         [SerializeField] float _speed = 1;
-        [SerializeField] float _width = 0.1f;
-
-        public float width {
-            get { return _width; }
-            set { _width = value; }
-        }
 
         [SerializeField, HideInInspector] Shader _shader;
-
         Material _material;
+
+        public float amplitude { get; set; }
+
+        static int _instanceCount;
+
         float _time;
 
         void OnDestroy()
@@ -30,6 +27,11 @@ namespace Seido
                 else
                     DestroyImmediate(_material);
             }
+        }
+
+        void Start()
+        {
+            _time = _instanceCount++;
         }
 
         void Update()
@@ -47,9 +49,8 @@ namespace Seido
 
             _material.SetColor("_Color1", _color1);
             _material.SetColor("_Color2", _color2);
-            _material.SetFloat("_LocalTime", _time);
-            _material.SetFloat("_Frequency", _frequency);
-            _material.SetFloat("_Width", _width);
+            _material.SetFloat("_Amplitude", amplitude);
+            _material.SetFloat("_LocalTime", _time + _instanceCount);
 
             Graphics.Blit(source, destination, _material, 0);
         }
