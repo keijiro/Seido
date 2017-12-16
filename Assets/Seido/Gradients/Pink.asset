@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54276434dda9c694e85abaf98cdd981d, type: 3}
   m_Name: Pink
   m_EditorClassIdentifier: 
-  _redCoeffs: {x: 0.849, y: 0.245, z: 1, w: 0.539}
-  _greenCoeffs: {x: 0.708, y: 0.252, z: 1, w: 0.257}
-  _blueCoeffs: {x: 0.692, y: 0.234, z: 1, w: 0.147}
+  _redCoeffs: {x: 0.84, y: 0.35, z: 1, w: 0.539}
+  _greenCoeffs: {x: 0.708, y: 0.39, z: 1, w: 0.257}
+  _blueCoeffs: {x: 0.692, y: 0.25, z: 1, w: 0.147}

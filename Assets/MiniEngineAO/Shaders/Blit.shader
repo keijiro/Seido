@@ -104,10 +104,19 @@ Shader "Hidden/MiniEngineAO/Blit"
             #pragma fragment frag
 
             sampler2D _AOTexture;
+            float4 _AOTexture_TexelSize;
+
+            // Dithering with the 3x3 Bayer matrix
+            fixed Dither3x3(float2 uv)
+            {
+                const float3x3 pattern = float3x3(0, 7, 3, 6, 5, 2, 4, 1, 8) / 9 - 0.5;
+                uint2 iuv = uint2(uv * _ScreenParams.xy / 2) % 3;
+                return pattern[iuv.x][iuv.y];
+            }
 
             float4 frag(v2f_img i) : SV_Target
             {
-                return tex2D(_AOTexture, i.uv).r;
+                return (tex2D(_AOTexture, i.uv).r + Dither3x3(i.uv)/2) > 0.5;
             }
 
             ENDCG

@@ -19,6 +19,7 @@ Shader "Hidden/Seido/PostFx"
     half4 _GradientB;
     half4 _GradientC;
     half4 _GradientD;
+    half _Frequency;
     half4 _LineColor;
     half _ColorThreshold;
     half _DepthThreshold;
@@ -61,7 +62,7 @@ Shader "Hidden/Seido/PostFx"
         half g_d = length(half2(d00 - d11, d01 - d10));
         g_d = saturate((g_d - _DepthThreshold) * 40);
 
-        float3 np = float3(uv00 * float2(4, 1) * 0.12, _Time.y * 0.08);
+        float3 np = float3(uv00 * float2(1, 0.25) * _Frequency, _LocalTime);
 
         half grad_x = 0.5 + snoise(np) / 2 + tex2D(_MainTex, uv00).g / 2;
         half3 grad = saturate(_GradientA + _GradientB * cos(_GradientC * grad_x + _GradientD));
