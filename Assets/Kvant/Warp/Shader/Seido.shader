@@ -29,7 +29,7 @@ Shader "Kvant/Warp/Seido"
 
     half4 Fragment(Varyings input) : SV_Target
     {
-        return input.color;
+        return 1;
     }
 
     ENDCG

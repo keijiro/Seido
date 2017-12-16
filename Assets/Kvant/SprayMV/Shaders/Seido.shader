@@ -41,7 +41,7 @@ Shader "Kvant/SprayMV/Seido"
 
     half4 Fragment(Varyings input) : SV_Target
     {
-        return half4(input.normal.z, 1, 1, 1);
+        return 1;
     }
 
     ENDCG

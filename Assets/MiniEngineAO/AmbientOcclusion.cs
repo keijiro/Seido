@@ -399,23 +399,23 @@ namespace MiniEngineAO
             if (ambientOnly)
                 _camera.AddCommandBuffer(CameraEvent.BeforeReflections, _renderCommand);
             else
-                _camera.AddCommandBuffer(CameraEvent.AfterImageEffects, _renderCommand);
+                _camera.AddCommandBuffer(CameraEvent.BeforeImageEffects, _renderCommand);
 
             if (_debug > 0)
-                _camera.AddCommandBuffer(CameraEvent.AfterImageEffects, _compositeCommand);
+                _camera.AddCommandBuffer(CameraEvent.BeforeImageEffects, _compositeCommand);
             else if (ambientOnly)
                 _camera.AddCommandBuffer(CameraEvent.BeforeLighting, _compositeCommand);
             else
-                _camera.AddCommandBuffer(CameraEvent.AfterImageEffects, _compositeCommand);
+                _camera.AddCommandBuffer(CameraEvent.BeforeImageEffects, _compositeCommand);
         }
 
         void UnregisterCommandBuffers()
         {
             _camera.RemoveCommandBuffer(CameraEvent.BeforeReflections, _renderCommand);
-            _camera.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _renderCommand);
+            _camera.RemoveCommandBuffer(CameraEvent.BeforeImageEffects, _renderCommand);
             _camera.RemoveCommandBuffer(CameraEvent.BeforeLighting, _compositeCommand);
-            _camera.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _compositeCommand);
-            _camera.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _compositeCommand);
+            _camera.RemoveCommandBuffer(CameraEvent.BeforeImageEffects, _compositeCommand);
+            _camera.RemoveCommandBuffer(CameraEvent.BeforeImageEffects, _compositeCommand);
         }
 
         void DoLazyInitialization()

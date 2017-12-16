@@ -12,9 +12,6 @@ namespace Seido
         [SerializeField] CosineGradient _gradient;
         [SerializeField] float _gradientFrequency = 1;
         [SerializeField] float _gradientSpeed = 1;
-        [SerializeField] Color _lineColor = Color.black;
-        [SerializeField, Range(0, 0.2f)] float _colorThreshold = 0.1f;
-        [SerializeField, Range(0, 0.2f)] float _depthThreshold = 0.1f;
 
         #endregion
 
@@ -59,9 +56,6 @@ namespace Seido
             }
 
             _material.SetFloat("_Frequency", _gradientFrequency);
-            _material.SetColor("_LineColor", _lineColor);
-            _material.SetFloat("_ColorThreshold", _colorThreshold);
-            _material.SetFloat("_DepthThreshold", _depthThreshold);
             _material.SetFloat("_LocalTime", _time);
 
             Graphics.Blit(source, destination, _material, 0);

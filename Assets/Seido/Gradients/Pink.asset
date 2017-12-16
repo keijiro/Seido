@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Pink
   m_EditorClassIdentifier: 
   _redCoeffs: {x: 0.84, y: 0.35, z: 1, w: 0.539}
-  _greenCoeffs: {x: 0.708, y: 0.39, z: 1, w: 0.257}
-  _blueCoeffs: {x: 0.692, y: 0.25, z: 1, w: 0.147}
+  _greenCoeffs: {x: 0.55, y: 0.49, z: 1, w: 0.257}
+  _blueCoeffs: {x: 0.6, y: 0.43, z: 1, w: 0.147}
