@@ -7,30 +7,14 @@ Shader "Kvant/Warp/Seido"
     half3 _Emission;
     float _NormalizedTime;
 
-    struct Varyings
-    {
-        float4 position : SV_Position;
-        half4 color : COLOR;
-    };
-
-    Varyings Vertex(
-        float4 position : POSITION,
-        float3 texcoord : TEXCOORD0
-    )
+    float4 Vertex(float4 position : POSITION, float3 texcoord : TEXCOORD0) : SV_Position
     {
         float3 p = ApplyLineParams(position.xyz, texcoord);
         p += GetLinePosition(texcoord, _NormalizedTime);
-
-        Varyings output;
-        output.position = UnityObjectToClipPos(p);
-        output.color = half4(texcoord.x, 1, 1, 1);
-        return output;
+        return UnityObjectToClipPos(p);
     }
 
-    half4 Fragment(Varyings input) : SV_Target
-    {
-        return 1;
-    }
+    half4 Fragment() : SV_Target { return 1; }
 
     ENDCG
 
