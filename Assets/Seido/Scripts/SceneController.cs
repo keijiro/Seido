@@ -51,8 +51,8 @@ namespace Seido
             var displayCount = Display.displays.Length;
             if (displayCount > 1)
             {
+                Display.displays[displayCount - 2].Activate();
                 Display.displays[displayCount - 1].Activate();
-                Display.displays[displayCount    ].Activate();
             }
 
             // Initialize the effect controllers.

@@ -435,9 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!1 &198115425
 GameObject:
@@ -826,7 +823,7 @@ MonoBehaviour:
   _filterType: 2
   _autoGain: 1
   _internalGain: 6
-  _dynamicRange: 8
+  _dynamicRange: 5
   _holdAndFallDown: 1
   _fallDownSpeed: 0.3
   _outputEvent:
@@ -1328,7 +1325,7 @@ MonoBehaviour:
   _filterType: 1
   _autoGain: 1
   _internalGain: 6
-  _dynamicRange: 8
+  _dynamicRange: 5
   _holdAndFallDown: 1
   _fallDownSpeed: 0.3
   _outputEvent:
@@ -2180,14 +2177,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gradients:
-  - {fileID: 11400000, guid: 02a4dabdfebb7494d949cc4f9775a52c, type: 2}
-  - {fileID: 11400000, guid: 4c81f7631642dcc41a15d0b3be03bb51, type: 2}
-  - {fileID: 11400000, guid: 24c3f309e87da874d9819e23866b44a5, type: 2}
-  - {fileID: 11400000, guid: d4734ca94f188794cb10bca2b161b85b, type: 2}
-  - {fileID: 11400000, guid: 74d6edab06b011b46867f188e9e093a3, type: 2}
-  - {fileID: 11400000, guid: f949b7b1b46d3b24ebe0d03565416a20, type: 2}
+  - {fileID: 11400000, guid: b6a6798bd17cac741818dbf30a68aa5b, type: 2}
   - {fileID: 11400000, guid: e85efa6ead79f304cac894ae3c78852a, type: 2}
+  - {fileID: 11400000, guid: 4c81f7631642dcc41a15d0b3be03bb51, type: 2}
   - {fileID: 11400000, guid: 5d979aeb7e86ad549ac9ba267a78548b, type: 2}
+  - {fileID: 11400000, guid: 02a4dabdfebb7494d949cc4f9775a52c, type: 2}
+  - {fileID: 11400000, guid: 04722ebf3da739b4cac31f2e07e336a1, type: 2}
+  - {fileID: 11400000, guid: d4734ca94f188794cb10bca2b161b85b, type: 2}
+  - {fileID: 11400000, guid: 0fde4d2eaf6005440af85ac6aa2ba321, type: 2}
   _effectGroups:
   - {fileID: 1991962901}
   - {fileID: 637160827}
@@ -2674,9 +2671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!1 &1381026971
 GameObject:
@@ -2756,9 +2750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!1 &1399814376
 GameObject:
@@ -2909,7 +2900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc069898107e2341bae915c59ab4ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gradient: {fileID: 11400000, guid: 02a4dabdfebb7494d949cc4f9775a52c, type: 2}
+  _gradient: {fileID: 11400000, guid: b6a6798bd17cac741818dbf30a68aa5b, type: 2}
   _gradientFrequency: 1
   _gradientSpeed: 0.2
   _shader: {fileID: 4800000, guid: 4a17056471009864db6dfeb7c1e53215, type: 3}
@@ -3020,9 +3011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &1469944673
 Camera:
@@ -3205,9 +3193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &1525315603
 Camera:
@@ -3360,7 +3345,7 @@ MonoBehaviour:
   _filterType: 3
   _autoGain: 1
   _internalGain: 6
-  _dynamicRange: 8
+  _dynamicRange: 5
   _holdAndFallDown: 1
   _fallDownSpeed: 0.3
   _outputEvent:
@@ -3860,9 +3845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &1967040290
 Camera:
@@ -4090,9 +4072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color1: {r: 0, g: 0, b: 0, a: 0}
-  _color2: {r: 1, g: 1, b: 1, a: 1}
-  _speed: 1
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &2062947195
 Camera:

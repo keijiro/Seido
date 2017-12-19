@@ -63,7 +63,7 @@ namespace Seido
                 // Play mode: Interpolates the gradient coefficients.
                 if (_gradient != null)
                 {
-                    var exp = Mathf.Exp(-0.5f * Time.deltaTime);
+                    var exp = Mathf.Exp(-1.5f * Time.deltaTime);
                     _gCoeffsA = Vector4.Lerp(_gradient.coeffsA, _gCoeffsA, exp);
                     _gCoeffsB = Vector4.Lerp(_gradient.coeffsB, _gCoeffsB, exp);
                     _gCoeffsC2 = Vector4.Lerp(_gradient.coeffsC2, _gCoeffsC2, exp);
