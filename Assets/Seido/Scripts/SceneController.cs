@@ -127,6 +127,7 @@ namespace Seido
             Kvant.Warp[] _warps;
             Kvant.Line[] _lines;
 
+            float _swarmWidth;
             float _lineScale;
 
             bool _active;
@@ -147,6 +148,7 @@ namespace Seido
                 _warps = root.GetComponentsInChildren<Kvant.Warp>();
                 _lines = root.GetComponentsInChildren<Kvant.Line>();
 
+                if (_swarms.Length > 0) _swarmWidth = _swarms[0].lineWidth;
                 if (_lines.Length > 0) _lineScale = _lines[0].baseScale;
 
                 _active = false;
@@ -155,13 +157,18 @@ namespace Seido
 
             public void Update()
             {
-                _throttle += (_active ? 1 : -1) * Time.deltaTime;
+                _throttle += (_active ? 0.6f : -0.6f) * Time.deltaTime;
 
                 var clamped = Mathf.Clamp01(_throttle);
                 foreach (var fx in _sprays) fx.throttle = clamped;
-                foreach (var fx in _swarms) fx.throttle = clamped;
                 foreach (var fx in _warps) fx.throttle = clamped;
                 foreach (var fx in _lines) fx.baseScale = _lineScale * clamped;
+
+                foreach (var fx in _swarms)
+                {
+                    fx.lineWidth = _swarmWidth * clamped * clamped;
+                    fx.throttle = clamped;
+                }
 
                 _root.SetActive(_throttle > -10);
             }

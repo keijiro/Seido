@@ -1471,20 +1471,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _template: {fileID: 11400000, guid: f549daecab4a05b4d82f0b63a0dd86e6, type: 2}
   _throttle: 1
-  _lineWidth: 0.07
-  _lineWidthRandomness: 0.5
-  _twist: 2
+  _lineWidth: 0.055
+  _lineWidthRandomness: 0
+  _twist: 4
   _flow: {x: 2, y: 0, z: 0}
   _randomSeed: 0
   _attractor: {fileID: 0}
   _attractorPosition: {x: -7.5, y: 0, z: 0}
   _attractorRadius: 0.1
   _forcePerDistance: 2
-  _forceRandomness: 0.2
+  _forceRandomness: 0.35
   _drag: 2
   _noiseAmplitude: 1.5
-  _noiseFrequency: 0.1
-  _noiseSpread: 0.5
+  _noiseFrequency: 0.12
+  _noiseSpread: 0.1
   _noiseSpeed: 0.5
   _swirlAmplitude: 0.1
   _swirlFrequency: 0.08
@@ -5320,20 +5320,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _template: {fileID: 11400000, guid: f549daecab4a05b4d82f0b63a0dd86e6, type: 2}
   _throttle: 1
-  _lineWidth: 0.07
-  _lineWidthRandomness: 0.5
-  _twist: 2
+  _lineWidth: 0.055
+  _lineWidthRandomness: 0
+  _twist: 4
   _flow: {x: 2, y: 0, z: 0}
   _randomSeed: 3
   _attractor: {fileID: 0}
   _attractorPosition: {x: -7.5, y: 0, z: 0}
   _attractorRadius: 0.1
   _forcePerDistance: 2
-  _forceRandomness: 0.2
+  _forceRandomness: 0.35
   _drag: 2
   _noiseAmplitude: 1.5
-  _noiseFrequency: 0.1
-  _noiseSpread: 0.5
+  _noiseFrequency: 0.12
+  _noiseSpread: 0.1
   _noiseSpeed: 0.5
   _swirlAmplitude: 0.1
   _swirlFrequency: 0.08
