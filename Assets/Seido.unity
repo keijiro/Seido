@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!1 &198115425
 GameObject:
@@ -2671,6 +2673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!1 &1381026971
 GameObject:
@@ -2750,6 +2753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!1 &1399814376
 GameObject:
@@ -3011,6 +3015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &1469944673
 Camera:
@@ -3193,6 +3198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &1525315603
 Camera:
@@ -3845,6 +3851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &1967040290
 Camera:
@@ -4072,6 +4079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c09778a7405a14ba54d65f65e382a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyerTexture: {fileID: 2800000, guid: feef572ea93d6c243980e107eb884ad9, type: 3}
   _shader: {fileID: 4800000, guid: d4f401c64c1ce43488f6b8bcdbafd131, type: 3}
 --- !u!20 &2062947195
 Camera:

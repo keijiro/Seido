@@ -2,7 +2,8 @@
 {
     Properties
     {
-        _MainTex("", 2D) = "white" {}
+        _MainTex("", 2D) = "" {}
+        _FlyerTex("", 2D) = "" {}
     }
 
     HLSLINCLUDE
@@ -36,6 +37,7 @@
     }
 
     sampler2D _MainTex;
+    sampler2D _FlyerTex;
     float _Amplitude;
     float _LocalTime;
 
@@ -56,6 +58,17 @@
     {
         half4 c = tex2D(_MainTex, uv);
         return half4(lerp(c.rgb, 1 - c.rgb, Mask(uv)), c.a);
+    }
+
+    half4 FragmentFlyer(float4 sv_position : SV_Position, float2 uv : TEXCOORD0) : SV_Target
+    {
+        return tex2D(_FlyerTex, uv) * 0.2;
+    }
+
+    half4 FragmentFlyerFx(float4 sv_position : SV_Position, float2 uv : TEXCOORD0) : SV_Target
+    {
+        half4 c = tex2D(_FlyerTex, uv);
+        return lerp(0, c, 0.2 + _Amplitude * 0.8);
     }
 
     ENDHLSL
@@ -106,6 +119,20 @@
             #pragma fragment Fragment
             #define WALLFX_SQUARES
             #include "WallFx.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex Vertex
+            #pragma fragment FragmentFlyer
+            ENDHLSL
+        }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex Vertex
+            #pragma fragment FragmentFlyerFx
             ENDHLSL
         }
     }
