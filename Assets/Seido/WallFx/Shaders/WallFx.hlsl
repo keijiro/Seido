@@ -2,7 +2,7 @@
 
 half Mask(float2 uv)
 {
-    float freq = 4;
+    float freq = 3;
     float width = 0.2 * _Amplitude;
     float t = _LocalTime * 3;
 
@@ -19,7 +19,7 @@ half Mask(float2 uv)
 
 half Mask(float2 uv)
 {
-    float reso = 60;
+    float reso = 50;
     float width = 0.6;
 
     float x = uv.x * reso;
@@ -38,24 +38,36 @@ half Mask(float2 uv)
 
 half Mask(float2 uv)
 {
-    half n = snoise(half2(1, _LocalTime * 13.12));
-    return uv.x < _Amplitude * (1 + n * 0.5);
+    float t = _LocalTime * 1.8;
+
+    half n0 = snoise(half2(0, t)) * 0.7 + 0.5;
+    half n1 = snoise(half2(1, t)) * 0.7 + 0.5;
+    half n2 = snoise(half2(2, t)) * 0.7 + 0.5;
+    half n3 = snoise(half2(3, t)) * 0.7 + 0.5;
+    half n4 = snoise(half2(4, t)) * 0.7 + 0.5;
+    half n5 = snoise(half2(5, t)) * 0.7 + 0.5;
+
+    half th1 = lerp(lerp(n0, n1, saturate(uv.y * 2)), n2, saturate(uv.y * 2 - 1));
+    half th2 = lerp(lerp(n3, n4, saturate(uv.y * 2)), n5, saturate(uv.y * 2 - 1));
+
+    th1 *= _Amplitude;
+    th2 *= _Amplitude;
+
+    return abs((th1 > uv.x) - (th2 > 1 - uv.x));
 }
 
 #elif defined(WALLFX_SQUARES)
 
 half Mask(float2 uv)
 {
-    float2 p = uv * float2(16, 9);
+    float2 p = uv * float2(7, 4);
     float2 p_c = floor(p) + 0.5;
 
     float2 p_f = abs(p - p_c);
     float dist = max(p_f.x, p_f.y);
 
-    half n = snoise(half2(p_c * 0.881 + _LocalTime * 3.82));
-    float thresh = (0.5 + n * 0.3) * _Amplitude;
-
-    return 1 - smoothstep(thresh - 0.1, thresh, dist);
+    half n = snoise(half2(p_c * 0.15 + _LocalTime * 1.4));
+    return saturate(2 - abs((1 + n) / 3 * _Amplitude - 0.1 - dist) * 60);
 }
 
 #else
