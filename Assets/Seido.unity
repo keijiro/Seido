@@ -3194,6 +3194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186031233}
   - component: {fileID: 1186031232}
+  - component: {fileID: 1186031234}
   m_Layer: 0
   m_Name: Scene Controller
   m_TagString: Untagged
@@ -3251,6 +3252,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1186031234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1186031231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdb68a1514abef4e88ce93a0993a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textureSet1:
+  - {fileID: 2800000, guid: 6be4b3d30932bc24db83194533d37dfa, type: 3}
+  - {fileID: 2800000, guid: 63aee35f9f88407498bfb8d51c1f3541, type: 3}
+  - {fileID: 2800000, guid: a534a3c82d257154da7e61250210ee34, type: 3}
+  - {fileID: 2800000, guid: 88cb198ae4f6d09489fa90c08abd579f, type: 3}
+  - {fileID: 2800000, guid: 4710859b195f8e7449a9d67777d3bac0, type: 3}
+  - {fileID: 2800000, guid: 538ec7b01cd8abe45b1c0de6f79e12f1, type: 3}
+  - {fileID: 2800000, guid: de6a1aeca418cd447baba99f931eb91c, type: 3}
+  _textureSet2:
+  - {fileID: 2800000, guid: 9072327b8d1c0d74bac163008a4df41e, type: 3}
+  - {fileID: 2800000, guid: 0c69753b9d6af22488aa86725b48a672, type: 3}
+  - {fileID: 2800000, guid: 1057e3548f914984d91b30e311e246c5, type: 3}
+  - {fileID: 2800000, guid: 14e5406046272ff42acb9b4c07386642, type: 3}
+  - {fileID: 2800000, guid: 75153901fa82fd6428bd91e61c9252b1, type: 3}
+  - {fileID: 2800000, guid: cca2fb8332555ee4b87d23b6268a0911, type: 3}
+  - {fileID: 2800000, guid: f788a6313a14010479df753dd41541a0, type: 3}
 --- !u!1 &1221580823
 GameObject:
   m_ObjectHideFlags: 0
