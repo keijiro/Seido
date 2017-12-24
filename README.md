@@ -12,7 +12,8 @@ Some materials (original music videos, flyer images, etc.) copyrighted by
 [NanaOn-Sha] are excluded but most parts of the project have been pushed to
 here.
 
+I release this work into the public domain. Feel free to reuse it for any
+purpose if it's useful in some way.
+
 [Matsuura Masaya]: https://en.wikipedia.org/wiki/Masaya_Matsuura
 [NanaOn-sha]: https://en.wikipedia.org/wiki/NanaOn-Sha
-
-<!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
