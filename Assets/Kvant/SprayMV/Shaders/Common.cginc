@@ -60,7 +60,7 @@ float _RandomSeed;
 // PRNG function
 float UVRandom(float2 uv, float salt)
 {
-    uv += float2(salt, _RandomSeed);
+    uv += float2(salt * 0.34843813, _RandomSeed * 0.32498589);
     return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
 }
 
