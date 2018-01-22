@@ -8,6 +8,7 @@ namespace Seido
         #region Editable properties
 
         [SerializeField] CosineGradient[] _gradients;
+        [SerializeField] MeshRenderer _mainRender;
         [SerializeField] GameObject[] _effectGroups;
         [SerializeField] GameObject[] _videoPlayers;
 
@@ -72,8 +73,10 @@ namespace Seido
             // Update the effect groups.
             foreach (var fx in _fxControllers) fx.Update();
 
-            // Disable key input while playing videos.
-            if (CheckVideoPlayerActive()) return;
+            // Disable the main render quad and key input while playing videos.
+            var videoPlaying = CheckVideoPlayerActive();
+            _mainRender.enabled = !videoPlaying;
+            if (videoPlaying) return;
 
             // Key input: Video players (function keys)
             for (var i = 0; i < _videoPlayers.Length; i++)
