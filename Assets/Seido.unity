@@ -3556,6 +3556,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 04722ebf3da739b4cac31f2e07e336a1, type: 2}
   - {fileID: 11400000, guid: d4734ca94f188794cb10bca2b161b85b, type: 2}
   - {fileID: 11400000, guid: 0fde4d2eaf6005440af85ac6aa2ba321, type: 2}
+  _mainRender: {fileID: 903946776}
   _effectGroups:
   - {fileID: 1991962901}
   - {fileID: 1048975016}
