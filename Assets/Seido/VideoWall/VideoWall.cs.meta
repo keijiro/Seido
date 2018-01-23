@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 2322f9e4175f34643975d325b739bec1
-timeCreated: 1513325858
+timeCreated: 1516634066
 licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _targetCamera: {instanceID: 0}
-  - _shader: {fileID: 4800000, guid: 224c9c631b5fef049ad35e2eb1a09d87, type: 3}
+  - _clip: {instanceID: 0}
+  - _shader: {fileID: 4800000, guid: dd169d52466953e489bde24cf1a2af52, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

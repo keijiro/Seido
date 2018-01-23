@@ -6,13 +6,19 @@ namespace Seido
 {
     public class VideoWall : MonoBehaviour
     {
+        enum DisplayMode { Landscape, DoubleVertical }
+
         [SerializeField] VideoClip _clip;
         [SerializeField] float[] _cuePoints = new float[] { 0 };
-        [SerializeField] Transform _wallRoot;
+        [SerializeField] DisplayMode _displayMode;
+        [SerializeField] float _width = 1;
+        [SerializeField] Camera[] _targetCameras;
+
+        [HideInInspector, SerializeField] Shader _shader;
 
         VideoPlayer _player;
-        Renderer[] _renderers;
-        MaterialPropertyBlock _sheet;
+        Material _material;
+        CommandBuffer _blit1, _blit2;
 
         void OnEnable()
         {
@@ -30,25 +36,71 @@ namespace Seido
             _player.clip = _clip;
             _player.Prepare();
 
-            // Enumerate the wall renderers.
-            _renderers = _wallRoot.GetComponentsInChildren<Renderer>();
+            // Set up the blit shader.
+            _material = new Material(_shader);
 
-            // Initialize the material sheet.
-            _sheet = new MaterialPropertyBlock();
+            var dest = BuiltinRenderTextureType.CameraTarget;
+            if (_displayMode == DisplayMode.Landscape)
+            {
+                // Landscape mode blit command
+                _blit1 = new CommandBuffer();
+                _blit1.name = gameObject.name;
+                _blit1.Blit(_player.texture, dest, _material, 0);
+
+                // Add the blit command to the target cameras.
+                foreach (var cam in _targetCameras)
+                    cam.AddCommandBuffer(CameraEvent.AfterImageEffects, _blit1);
+            }
+            else
+            {
+                // Vertical mode blit command (left half)
+                _blit1 = new CommandBuffer();
+                _blit1.name = gameObject.name;
+                _blit1.Blit(_player.texture, dest, _material, 1);
+
+                // Vertical mode blit command (right half)
+                _blit2 = new CommandBuffer();
+                _blit2.name = gameObject.name;
+                _blit2.Blit(_player.texture, dest, _material, 2);
+
+                // Add the blit command to the target cameras.
+                for (var i = 0; i < _targetCameras.Length; i++)
+                    _targetCameras[i].AddCommandBuffer(
+                        CameraEvent.AfterImageEffects,
+                        (i & 1) == 0 ? _blit1 : _blit2
+                    );
+            }
         }
 
         void OnDisable()
         {
+            // Remove the blit command from the target camera.
+            if (_blit1 != null)
+            {
+                foreach (var cam in _targetCameras)
+                    cam.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _blit1);
+
+                _blit1.Release();
+                _blit1 = null;
+            }
+
+            if (_blit2 != null)
+            {
+                foreach (var cam in _targetCameras)
+                    cam.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _blit2);
+
+                _blit2.Release();
+                _blit2 = null;
+            }
+
+            // Destroy the blit shader material.
+            Destroy(_material);
+            _material = null;
+
             // Stop playing back and destroy the video player.
             _player.Stop();
             Destroy(_player);
             _player = null;
-
-            // Hide the wall renderers.
-            foreach (var r in _renderers) if (r != null) r.enabled = false;
-
-            _renderers = null;
-            _sheet = null;
         }
 
         void Update()
@@ -60,16 +112,9 @@ namespace Seido
                 return;
             }
 
-            // Update the wall renderers (only when the video texture is ready).
-            if (_player.texture != null)
-            {
-                _sheet.SetTexture("_MainTex", _player.texture);
-                foreach (var r in _renderers)
-                {
-                    r.enabled = true;
-                    r.SetPropertyBlock(_sheet);
-                }
-            }
+            // Update the material properties.
+            _material.SetTexture("_MainTex", _player.texture);
+            _material.SetFloat("_Width", _width);
 
             // Playback start
             if (Input.GetKeyDown(KeyCode.Space))
