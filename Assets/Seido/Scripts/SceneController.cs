@@ -16,6 +16,12 @@ namespace Seido
 
         #region Private variables and methods
 
+        static readonly KeyCode[] _fxKeys = {
+            KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, 
+            KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8,
+            KeyCode.Alpha9, KeyCode.Alpha0, KeyCode.Minus, KeyCode.Equals
+        };
+
         static readonly KeyCode[] _gradientKeys = {
             KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T,
             KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P
@@ -93,7 +99,7 @@ namespace Seido
             // Key input: Effect groups (alpha numeric keys)
             for (var i = 0; i < _fxControllers.Length; i++)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                if (Input.GetKeyDown(_fxKeys[i]))
                     _fxControllers[i].Toggle();
             }
 
@@ -129,6 +135,7 @@ namespace Seido
             Kvant.SwarmMV[] _swarms;
             Kvant.Warp[] _warps;
             Kvant.Line[] _lines;
+            BoidController _boids;
 
             float _swarmWidth;
             float _lineScale;
@@ -140,6 +147,9 @@ namespace Seido
             {
                 _active = !_active;
                 _throttle = Mathf.Clamp01(_throttle);
+
+                if (_boids != null)
+                    if (_active) _boids.SpawnAll(); else _boids.KillAll();
             }
 
             public FxController(GameObject root)
@@ -150,6 +160,7 @@ namespace Seido
                 _swarms = root.GetComponentsInChildren<Kvant.SwarmMV>();
                 _warps = root.GetComponentsInChildren<Kvant.Warp>();
                 _lines = root.GetComponentsInChildren<Kvant.Line>();
+                _boids = root.GetComponent<BoidController>();
 
                 if (_swarms.Length > 0) _swarmWidth = _swarms[0].lineWidth;
                 if (_lines.Length > 0) _lineScale = _lines[0].baseScale;
