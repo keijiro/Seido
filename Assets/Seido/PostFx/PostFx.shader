@@ -44,7 +44,7 @@ Shader "Hidden/Seido/PostFx"
         float3 p_n = float3(input.texcoord * _Frequency, _LocalTime);
         p_n.y /= 4;
 
-        half sel = 1 + snoise(p_n) + tex2D(_MainTex, input.texcoord).r;
+        half sel = 1 + snoise(p_n) + saturate(tex2D(_MainTex, input.texcoord).r);
         half3 grad = Gradient(sel / 2);
 
         return fixed4(GammaToLinearSpace(grad), 1);

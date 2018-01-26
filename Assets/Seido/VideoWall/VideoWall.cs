@@ -78,7 +78,7 @@ namespace Seido
             if (_blit1 != null)
             {
                 foreach (var cam in _targetCameras)
-                    cam.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _blit1);
+                    if (cam != null) cam.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _blit1);
 
                 _blit1.Release();
                 _blit1 = null;
@@ -87,7 +87,7 @@ namespace Seido
             if (_blit2 != null)
             {
                 foreach (var cam in _targetCameras)
-                    cam.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _blit2);
+                    if (cam != null) cam.RemoveCommandBuffer(CameraEvent.AfterImageEffects, _blit2);
 
                 _blit2.Release();
                 _blit2 = null;
