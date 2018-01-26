@@ -34,26 +34,11 @@ half Mask(float2 uv)
     return p * (frac(x) < width);
 }
 
-#elif defined(WALLFX_SHUTTERS)
+#elif defined(WALLFX_FILL)
 
 half Mask(float2 uv)
 {
-    float t = _LocalTime * 1.8;
-
-    half n0 = snoise(half2(0, t)) * 0.7 + 0.5;
-    half n1 = snoise(half2(1, t)) * 0.7 + 0.5;
-    half n2 = snoise(half2(2, t)) * 0.7 + 0.5;
-    half n3 = snoise(half2(3, t)) * 0.7 + 0.5;
-    half n4 = snoise(half2(4, t)) * 0.7 + 0.5;
-    half n5 = snoise(half2(5, t)) * 0.7 + 0.5;
-
-    half th1 = lerp(lerp(n0, n1, saturate(uv.y * 2)), n2, saturate(uv.y * 2 - 1));
-    half th2 = lerp(lerp(n3, n4, saturate(uv.y * 2)), n5, saturate(uv.y * 2 - 1));
-
-    th1 *= _Amplitude;
-    th2 *= _Amplitude;
-
-    return abs((th1 > uv.x) - (th2 > 1 - uv.x));
+    return _Amplitude;
 }
 
 #elif defined(WALLFX_SQUARES)

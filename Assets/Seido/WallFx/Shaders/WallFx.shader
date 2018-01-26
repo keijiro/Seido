@@ -108,7 +108,7 @@
             HLSLPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
-            #define WALLFX_SHUTTERS
+            #define WALLFX_FILL
             #include "WallFx.hlsl"
             ENDHLSL
         }
