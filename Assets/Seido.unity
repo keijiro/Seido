@@ -1432,8 +1432,8 @@ MonoBehaviour:
   _noiseFrequency: 0.2
   _noiseMotion: 1
   _template: {fileID: 11400000, guid: 87a7293f2eef5064aacd1c2423de9996, type: 2}
-  _scale: 2
-  _scaleRandomness: 0.4
+  _scale: 1.5
+  _scaleRandomness: 0.5
   _randomSeed: 3
   _kernels: {fileID: 4800000, guid: ec7be90622201624cb51488b5eebbdc8, type: 3}
   _defaultMaterial: {fileID: 2100000, guid: 0139c04a93166b843be379e0cc915782, type: 2}
@@ -1641,8 +1641,8 @@ MonoBehaviour:
   _noiseFrequency: 0.2
   _noiseMotion: 0.7
   _template: {fileID: 11400000, guid: 73a432da5b6aaef4ea5c41c753f38b79, type: 2}
-  _scale: 1.8
-  _scaleRandomness: 0.7
+  _scale: 1.4
+  _scaleRandomness: 0.8
   _randomSeed: 1
   _kernels: {fileID: 4800000, guid: ec7be90622201624cb51488b5eebbdc8, type: 3}
   _defaultMaterial: {fileID: 2100000, guid: 0139c04a93166b843be379e0cc915782, type: 2}
@@ -11164,8 +11164,8 @@ MonoBehaviour:
   _noiseFilterTolerance: 0
   _blurTolerance: -4.6
   _upsampleTolerance: -12
-  _rejectionFalloff: 4
-  _strength: 0.87
+  _rejectionFalloff: 6
+  _strength: 1
   _debug: 0
   _downsample1Compute: {fileID: 7200000, guid: 659dc93a3764e164e8dafb2061ff317b, type: 3}
   _downsample2Compute: {fileID: 7200000, guid: dc4dd2f3a1157884e95a081b25b5731d, type: 3}
@@ -12318,8 +12318,8 @@ MonoBehaviour:
   _noiseFrequency: 0.25
   _noiseMotion: 0.8
   _template: {fileID: 11400000, guid: 73a432da5b6aaef4ea5c41c753f38b79, type: 2}
-  _scale: 1.8
-  _scaleRandomness: 0.7
+  _scale: 1.4
+  _scaleRandomness: 0.8
   _randomSeed: 2
   _kernels: {fileID: 4800000, guid: ec7be90622201624cb51488b5eebbdc8, type: 3}
   _defaultMaterial: {fileID: 2100000, guid: 0139c04a93166b843be379e0cc915782, type: 2}
@@ -13151,8 +13151,8 @@ MonoBehaviour:
   _noiseFrequency: 0.25
   _noiseMotion: 0.9
   _template: {fileID: 11400000, guid: 87a7293f2eef5064aacd1c2423de9996, type: 2}
-  _scale: 2
-  _scaleRandomness: 0.4
+  _scale: 1.5
+  _scaleRandomness: 0.5
   _randomSeed: 4
   _kernels: {fileID: 4800000, guid: ec7be90622201624cb51488b5eebbdc8, type: 3}
   _defaultMaterial: {fileID: 2100000, guid: 0139c04a93166b843be379e0cc915782, type: 2}
