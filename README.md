@@ -6,7 +6,8 @@
 ![gif](https://i.imgur.com/1Ql9Ygs.gif)
 
 Seido (静動) is a small project that was created for presenting live visuals at
-[Matsuura Masaya]'s live performance at Hosono Building, Osaka, 23th Dec 2017.
+[Matsuura Masaya]'s live performance at Hosono Building, Osaka, 23th Dec 2017,
+and Itoya Inspiration Hall, Tokyo, 27th Jan 2018.
 
 Some materials (original music videos, flyer images, etc.) copyrighted by
 [NanaOn-Sha] are excluded but most parts of the project have been pushed to
